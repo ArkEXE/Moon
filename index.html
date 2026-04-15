@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Moon</title>
+<link rel="icon" type="image/x-icon" href="assets/MoonLogo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="MOON.css">
+</head>
+<body>
+<div class="app">
+  <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+    <div class="theme-toggle-thumb" id="theme-thumb">🌙</div>
+  </button>
+
+  <div class="app-static">
+    <div class="header">
+      <div class="logo-mark">
+        <img src="assets/ProjectMoon.webp" alt="MOON" style="width: 165px; height: 188px;" />
+      </div>
+      <div class="logo-title">Moon</div>
+      <div class="logo-sub">Your task for the day.</div>
+    </div>
+
+    <div class="hero-section">
+      <div class="date-label" id="date-label">Today</div>
+      <div class="challenge-card" id="challenge-card">
+        <div class="challenge-text placeholder" id="challenge-display">
+          Press the button to receive today's task ✦
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <button class="generate-btn" id="generate-btn" onclick="generateChallenge()">
+          <span class="btn-icon">✦</span>
+          <span id="btn-label">Generate Task</span>
+        </button>
+        <button class="save-btn" id="save-btn" onclick="saveChallenge()">
+          <span>＋</span> Save to my list
+        </button>
+        <div class="error-msg" id="error-msg"></div>
+      </div>
+    </div>
+
+    <div class="api-key-section" style="margin-top:28px;display:none;">
+      <label class="api-key-label">OpenRouter API Key</label>
+      <input type="password" class="api-key-input" id="api-key-input" placeholder="sk-or-v1-..." />
+    </div>
+
+    <div class="divider">
+      <div class="divider-line">
+        <span class="divider-label">My Tasks</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-scroll">
+    <div class="challenges-section">
+      <div class="streak-bar">
+        <div class="streak-info">
+          <span class="streak-icon">🌙</span>
+          <span class="streak-label">Day streak</span>
+        </div>
+        <div class="streak-track">
+          <div class="streak-fill" id="streak-fill"></div>
+        </div>
+        <span class="streak-count" id="streak-count">0</span>
+      </div>
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tab-active" onclick="switchTab('active')">Active</button>
+        <button class="tab-btn" id="tab-done" onclick="switchTab('done')">Completed</button>
+      </div>
+      <div class="section-header">
+        <span class="section-title" id="list-label">To do</span>
+        <span class="badge" id="list-badge">0</span>
+      </div>
+      <div class="list-scroll">
+        <div id="challenges-list"></div>
+      </div>
+    </div>
+    <p class="disclaimer">All assets, characters, and music belong to their respective owners. This is a fan-made project for personal fun — not affiliated with or endorsed by any rights holder.</p>
+    <p class="disclaimer">Made with love by ArkEXE ♡</p>
+  </div>
+
+</div>
+
+<audio id="ding-audio" preload="auto">
+  <source src="https://nu.vgmtreasurechest.com/soundtracks/library-of-ruina-official-soundtrack/wlnicmde/05.%20Children%20of%20the%20City.mp3" type="audio/mpeg">
+</audio>
+
+<script src="MOON.js"></script>
+</body>
+</html>
